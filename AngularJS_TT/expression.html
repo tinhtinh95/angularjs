@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<title>Expression</title>
+</head>
+<body>
+
+<div ng-app="" ng-init="quantity=30; cost=20; 
+profile=[{name:'Tina Nguyen', age:'22 years old', level:'senior student', major:'IT'},{name:'Tinh Nguyen',age:'18 years old', level:'fresh man', major:'IT'}];
+point=[7,8,9,10]">
+	<h2>{{quantity * cost}}</h2>
+	<h2>Point of Java: {{point[3]}}</h2>
+	<ul>
+		<li ng-repeat="objProfile in profile">
+			<h2>{{"Name: "+ objProfile.name +" - Age: "+objProfile.age+" - Level: "+objProfile.level+" - Major: "+objProfile.major}}</h2>
+		</li>
+	</ul>
+
+</div>
+
+</body>
+</html>

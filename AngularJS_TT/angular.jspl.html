@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+ </head>
+ <body ng-app="myapp">
+<!-- 
+Day la view, goi den controller co ten la HelloController
+ -->
+  <div ng-controller="HelloController" >
+ <h2>Hello {{helloTo.title}}!. Let's study together. </h2>
+ </div> 
+
+ <div ng-controller="myname">
+ 	{{name+" "+nickName}}
+ </div>
+
+ <!-- Vi du 2: dung ng-model de in ra ten trong {{}} hoac in ra ten trong ng-bind -->
+<input type="text" ng-model="name"> <!-- ng-model la dinh nghia mot bien -->
+<p>Hello {{name}} </p>
+<p>Hello <span ng-bind="name"></span> </p>
+
+ <script>
+ var app=angular.module("myapp", []);
+ // Khoi tao controller co ten la HelloController
+ app.controller("HelloController", function($scope) { // truyen toi nhu la mot model
+ $scope.helloTo = {title:"World"}; // doi tuong la helloTo
+ // hoac dung cach khai bao nay$scope.helloTo.title = "World"; // truong title
+ });
+ // ham controller 2
+ app.controller("myname",function($scope){
+ 	$scope.name="Tinh";
+ 	$scope.nickName="Tina";
+ });
+ </script>
+
+
+ </body>
+</html>
