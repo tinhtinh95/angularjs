@@ -59,11 +59,19 @@
 	<input type="text" ng-model="student.money" name="">
 	<h3>{{student.money | currency}}</h3>
 
-	<input type="text" ng-model="orderMe" name="">
-	<ul>
-		<li ng-repeat="objPoint in student.point | filter: orderMe | orderBy: 'marks'"> {{"Subject: "+ objPoint.name+" Mark: "+objPoint.marks}}</li>
-	</ul>
-
+	<!-- <input type="text" ng-model="orderMe" name=""> -->
+	<table border="1" style="border-collapse: collapse;">
+		<tr>
+		<th ng-click="order('name')">Subject</th>
+		<th ng-click="order('marks')">Marks</th>
+		</tr>
+		<tr ng-repeat="objPoint in student.point| orderBy: orderMe | filter: 'h'">
+		    <td> {{objPoint.name}}</td>
+		    <td> {{objPoint.marks}}</td>
+		</tr>
+	
+	</table>>
+	
 	</div>
 	<script>
 		var app=angular.module("mainApp",[]);
@@ -77,8 +85,13 @@
 					return obj.firstName+" "+obj.lastName;
 				},
 				money: "4930",
-			    point:[{name:"math",marks:9},{name:"physic",marks:10},{name:"Chemistry",marks:8}]
+			    point:[{name:"math",marks:8},{name:"physic",marks:9},{name:"Chemistry",marks:10}],
+			    
 			};
+			$scope.order=function(x){
+			    	$scope.orderMe=x;
+			    }
+
 		});
 
 
