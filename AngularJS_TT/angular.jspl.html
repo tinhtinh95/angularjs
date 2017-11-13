@@ -31,6 +31,9 @@ Day la view, goi den controller co ten la HelloController
  app.controller("myname",function($scope){
  	$scope.name="Tinh";
  	$scope.nickName="Tina";
+        $scope.full=function(){
+		return name+""+nickName;
+};
  });
  </script>
 
